@@ -22,7 +22,7 @@ data['alpha'] = 1 - data['labsh']
 data['hours'] = data['emp'] * data['avh']  # L
 data['y'] = data['rgdpna'] / data['hours']  # y = Y/L
 data['tfp_term'] = data['rtfpna'] #A
-data['k'] = (data['rkna'] +data['hc'])/ data['hours'] # k = K/L
+data['k'] = (data['rkna'] + (data['hc'] * data['emp']))/ data['hours'] # k = K/L
 data['cap_term'] = (data['k']) ** (data['alpha'] )  # k^α
 data = data.sort_values('year').groupby('countrycode').apply(lambda x: x.assign(
     alpha=1 - x['labsh'],
